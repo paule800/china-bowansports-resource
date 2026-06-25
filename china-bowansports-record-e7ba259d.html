@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博万体育 · 指南与说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f1f7f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 网格卡片 蓝绿点缀 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 32px 0 28px;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px 20px 24px;
+      box-shadow: 0 6px 14px rgba(0, 60, 50, 0.04);
+      border-left: 5px solid #2e9a8c;
+      transition: box-shadow 0.15s, transform 0.1s;
+    }
+    .card:hover {
+      box-shadow: 0 10px 22px rgba(44, 130, 120, 0.10);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      color: #116b60;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card h3::before {
+      content: "▹";
+      color: #3ab7a7;
+      font-weight: 500;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4542;
+    }
+
+    /* hero / 首屏 */
+    .hero {
+      background: #d4ede8;
+      padding: 40px 28px;
+      border-radius: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(32, 120, 100, 0.06);
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #08574c;
+      margin-bottom: 6px;
+    }
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #1d6b5f;
+      opacity: 0.9;
+      border-bottom: 2px solid #8fd1c6;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .hero p {
+      margin-top: 18px;
+      max-width: 680px;
+      color: #1d4b44;
+    }
+
+    /* 说明区 */
+    .guide-block {
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      padding: 24px 22px;
+      border-radius: 24px;
+      border: 1px solid #c4e3dd;
+      margin: 28px 0 32px;
+    }
+    .guide-block h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #0a6356;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guide-block h2 small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #358075;
+      background: #d4f0ea;
+      padding: 0 14px;
+      border-radius: 40px;
+      line-height: 1.8;
+    }
+    .guide-block ul {
+      list-style: none;
+      margin-top: 18px;
+    }
+    .guide-block li {
+      padding: 10px 0 10px 26px;
+      position: relative;
+      border-bottom: 1px solid #e3f0ed;
+    }
+    .guide-block li:last-child {
+      border-bottom: none;
+    }
+    .guide-block li::before {
+      content: "●";
+      color: #359f8e;
+      font-size: 0.8rem;
+      position: absolute;
+      left: 4px;
+      top: 12px;
+    }
+
+    /* 提示区 */
+    .note-area {
+      background: #f3fbf9;
+      border-radius: 24px;
+      padding: 24px 22px;
+      border-left: 6px solid #21937f;
+      margin: 24px 0;
+    }
+    .note-area h3 {
+      font-size: 1.3rem;
+      color: #13665a;
+      margin-bottom: 10px;
+    }
+    .note-area p {
+      color: #1f5149;
+    }
+
+    /* 相关信息区 */
+    .related {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 24px;
+      margin: 28px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .related .text {
+      flex: 1 1 200px;
+    }
+    .related .text h4 {
+      font-size: 1.2rem;
+      color: #0d6b5e;
+      margin-bottom: 8px;
+    }
+    .related .text p {
+      color: #2a5a52;
+      max-width: 320px;
+    }
+    .related .meta-badge {
+      background: #e2f3ef;
+      padding: 14px 22px;
+      border-radius: 80px;
+      color: #06574b;
+      font-weight: 500;
+      display: inline-block;
+      border: 1px solid #a5d6cc;
+    }
+
+    /* FAQ摘要 */
+    .faq-mini {
+      background: #f7fcfb;
+      border-radius: 24px;
+      padding: 20px 24px 28px;
+      margin-top: 18px;
+      border: 1px solid #c1ddd6;
+    }
+    .faq-mini h3 {
+      color: #136459;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      padding: 12px 0;
+      border-bottom: 1px dashed #bad6cf;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item .q {
+      font-weight: 500;
+      color: #125f53;
+    }
+    .faq-item .a {
+      color: #264a43;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 12px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+      .related {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .guide-block h2 {
+        flex-wrap: wrap;
+      }
+    }
+
+    a {
+      color: #117a6a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #7fbeb2;
+    }
+    a:hover {
+      background: #d2f0e9;
+      border-bottom-style: solid;
+    }
+
+    .footer-note {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #51726b;
+      border-top: 1px solid #cbdcd6;
+      padding-top: 28px;
+    }
+    .footer-note span {
+      background: #d8eeea;
+      padding: 2px 12px;
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- hero -->
+  <div class="hero">
+    <h1>博万体育 · 简明知识库</h1>
+    <div class="sub">指南 · 说明 · 快速参考</div>
+    <p>本页整理了关于 <a href="https://china-bowansports.com">博万体育</a> 的基本信息、访问要点与常见说明。无论您是初次了解还是希望快速查阅，这里的内容都经过收敛和整理，方便您直接参考。</p>
+  </div>
+
+  <!-- 网格卡片：目录感布局 -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>平台定位</h3>
+      <p>博万体育面向运动资讯与体育相关内容，提供信息聚合及服务引导。其网站覆盖多个板块，方便用户按需浏览。</p>
+    </div>
+    <div class="card">
+      <h3>使用场景</h3>
+      <p>日常体育信息查询、赛事动态关注、资源索引等。适合希望一站式获取体育类参考的用户。</p>
+    </div>
+    <div class="card">
+      <h3>内容特点</h3>
+      <p>栏目划分清晰，更新节奏稳定。页面结构以实用为导向，减少冗余信息。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：从简明指南角度 -->
+  <div class="guide-block">
+    <h2>📖 简明指南 <small>快速了解关键点</small></h2>
+    <ul>
+      <li><strong>访问方式</strong>：直接通过浏览器输入网址即可进入 <a href="https://china-bowansports.com">博万体育</a> 首页，无需额外注册即可浏览主要公开内容。</li>
+      <li><strong>栏目结构</strong>：首页通常展示导航入口、推荐条目及分类索引，可根据个人兴趣深入对应板块。</li>
+      <li><strong>信息时效</strong>：站内内容会按周期更新，建议定期回看或关注相关模块。</li>
+      <li><strong>兼容性</strong>：适配桌面及移动设备，手机浏览器下可获得自适应布局体验。</li>
+    </ul>
+  </div>
+
+  <!-- 提示区：访问提醒 -->
+  <div class="note-area">
+    <h3>⚡ 访问提醒</h3>
+    <p>• 请确保网络环境稳定，部分资源加载可能受本地网络影响。<br>
+    • 若遇到页面显示异常，可尝试刷新或更换浏览器。<br>
+    • 平台内容仅供参考，具体信息以网站实际发布为准。<br>
+    • 建议将 <a href="https://china-bowansports.com">博万体育</a> 添加至书签，方便后续快速返回。</p>
+  </div>
+
+  <!-- 相关信息区 + 额外摘要 -->
+  <div class="related">
+    <div class="text">
+      <h4>相关信息</h4>
+      <p>站点采用较为清晰的信息层级，适合作为体育类知识入口。页面布局以卡片与列表为主，便于扫读。</p>
+    </div>
+    <div class="meta-badge">📌 知识库入口 · 持续整理</div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3>❓ 常见说明摘要</h3>
+    <div class="faq-item">
+      <div class="q">博万体育主要提供什么？</div>
+      <div class="a">以体育信息聚合与导航为主，涵盖多个运动类别及相关资讯索引。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">是否需要登录才能浏览？</div>
+      <div class="a">大部分公开内容可直接浏览，部分互动或个性化功能可能需注册（以网站实际设定为准）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">内容更新频率如何？</div>
+      <div class="a">根据栏目不同有所差异，建议关注首页更新区或相关分类。</div>
+    </div>
+  </div>
+
+  <!-- 底部安静提示 -->
+  <div class="footer-note">
+    <span>博万体育 · 知识参考页</span> — 本页为说明与指南汇总，不构成任何形式承诺。
+  </div>
+</div>
+</body>
+</html>
